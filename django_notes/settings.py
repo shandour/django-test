@@ -5,7 +5,7 @@ import local_settings
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-SECRET_KEY = 'laj8u^$bszls8!#&ta4q$rr(68z+ey766vy@f6!(m43cfo0%0&'
+SECRET_KEY = local_settings.SECRET_KEY
 
 DEBUG = local_settings.DEBUG
 

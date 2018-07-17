@@ -1,7 +1,7 @@
 A simple test app, using Django Rest Framework for the backend and React (React-Router, React-Bootstrap) for the frontend.
 
 Instructions to start the app:
-1) create your own local_settings.py file at the project root. The file should minimally contain a DATABASE dict and a boolean value for the DEBUG const.
+1) create your own local_settings.py file at the project root. The file should minimally contain a DATABASE dict, the SECRET_KEY, and a boolean value for the DEBUG const.
 E.g., DATABASE = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'mydbname',
@@ -12,6 +12,8 @@ E.g., DATABASE = {
     }
 
 DEBUG = True
+
+SECRET_KEY = 'mysecretkey'
 
 2) go to /notes/static/notes subfolder. Using yarn or npm install all the dependencies listed in the package.json file.
 E.g., yarn add package.json.
