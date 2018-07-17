@@ -1,0 +1,7 @@
+*~
+*.pyc
+*.js~
+*.css~
+local_settings.py
+node_modules
+js
