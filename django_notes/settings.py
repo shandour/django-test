@@ -72,10 +72,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-]
-
 # apply heroku settings
 import django_heroku
 django_heroku.settings(locals())
