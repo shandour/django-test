@@ -1,1 +1,1 @@
-web: gunicorn django_notes.wsgi:application
+web: gunicorn --workers=3 django_notes.wsgi:application
