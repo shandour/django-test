@@ -45,7 +45,7 @@ class FormList extends React.Component {
     async handleSubmit(e) {
         e.preventDefault();
 
-        const csrfmiddlewaretoken = document.getElementById('csrfmiddlewaretoken');
+        const csrfmiddlewaretoken = document.querySelector("input[name='csrfmiddlewaretoken']").value;
         const textValue = this.input.value;
 
         const req = new Request('/notes',
@@ -62,7 +62,6 @@ class FormList extends React.Component {
                 await this.fetchNotes(lastAddedId);
             } else {
                 const json = await resp.json();
-
                 this.setState({
                     errors: json['text'],
                     lastAddedId: null

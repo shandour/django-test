@@ -1,13 +1,7 @@
 import os
 
-import local_settings
-
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-SECRET_KEY = local_settings.SECRET_KEY
-
-DEBUG = local_settings.DEBUG
 
 ALLOWED_HOSTS = []
 
@@ -50,10 +44,6 @@ TEMPLATES = [
     },
 ]
 
-DATABASES = {
-    'default': local_settings.DATABASE
-}
-
 WSGI_APPLICATION = 'django_notes.wsgi.application'
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -86,3 +76,8 @@ STATICFILES_DIRS = [
 ]
 
 STATIC_URL = '/static/'
+
+
+# reading and executing the file which the DJANGO_NOTES_LOCAL_SETTINGS_PATH envvar is pointing to
+with open(os.environ['DJANGO_NOTES_LOCAL_SETTINGS_PATH']) as f:
+    exec(f.read())
