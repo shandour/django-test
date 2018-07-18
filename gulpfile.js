@@ -9,20 +9,19 @@ var size = require('gulp-size');
 // tasks
 
 gulp.task('transform', function () {
-  var stream = gulp.src('./jsx/reactFrontend.js')
+  var stream = gulp.src('./notes/static/notes/jsx/reactFrontend.js')
     .pipe(gulpBrowser.browserify({transform: ['babelify', {presets: ["es2015", "react"]}]}))
-    .pipe(gulp.dest('./js/'))
+    .pipe(gulp.dest('./notes/static/notes/js/'))
     .pipe(size());
   return stream;
 });
 
 gulp.task('del', function () {
-  return del(['./js']);
+  return del(['./notes/static/notes/js']);
 });
 
 gulp.task('default', ['del'], function () {
   gulp.start('transform');
-  gulp.watch('./jsx/*.js', ['transform']);
 });
 
 
