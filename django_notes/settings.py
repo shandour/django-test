@@ -71,6 +71,8 @@ USE_L10N = True
 
 USE_TZ = True
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
@@ -79,5 +81,8 @@ STATIC_URL = '/static/'
 
 
 # reading and executing the file which the DJANGO_NOTES_LOCAL_SETTINGS_PATH envvar is pointing to
-with open(os.environ['DJANGO_NOTES_LOCAL_SETTINGS_PATH']) as f:
-    exec(f.read())
+try:
+    with open(os.environ['DJANGO_NOTES_LOCAL_SETTINGS_PATH']) as f:
+        exec(f.read())
+except Exception:
+    pass
