@@ -1,5 +1,6 @@
 import os
 
+DEBUG = False
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -24,6 +25,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware'
 ]
 
 ROOT_URLCONF = 'django_notes.urls'
@@ -79,10 +81,7 @@ STATICFILES_DIRS = [
 
 STATIC_URL = '/static/'
 
+# apply heroku settings
+import django_heroku
+django_heroku.settings(locals())
 
-# reading and executing the file which the DJANGO_NOTES_LOCAL_SETTINGS_PATH envvar is pointing to
-try:
-    with open(os.environ['DJANGO_NOTES_LOCAL_SETTINGS_PATH']) as f:
-        exec(f.read())
-except Exception:
-    pass
